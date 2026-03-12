@@ -1,24 +1,26 @@
 package lab2oop.ChessBonus;
 
-abstract class PieceBonus {
+public abstract class PieceBonus {
+    protected PositionBonus pos;
+    protected String color;
 
-    PositionBonus pos;
-    String color;
-    char symbol;
-
-    PieceBonus(PositionBonus p, String c, char s) {
-
-        pos = p;
-        color = c;
-        symbol = s;
+    public PieceBonus(PositionBonus pos, String color) {
+        this.pos = pos;
+        this.color = color;
     }
 
-    abstract boolean isLegal(PositionBonus newPos, PieceBonus[][] board);
-
-    char getSymbol() {
-
-        return color.equals("white") ?
-                Character.toUpperCase(symbol) :
-                Character.toLowerCase(symbol);
+    public String getColor() {
+        return color;
     }
+
+    public PositionBonus getPosition() {
+        return pos;
+    }
+
+    public void setPosition(PositionBonus newPos) {
+        this.pos = newPos;
+    }
+
+    public abstract boolean isLegalMove(PositionBonus newPos, PieceBonus[][] board);
+    public abstract String getSymbol();
 }
