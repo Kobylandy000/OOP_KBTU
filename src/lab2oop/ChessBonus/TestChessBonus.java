@@ -23,7 +23,7 @@ public class TestChessBonus {
             int c2 = sc.nextInt();
 
             boolean finished =
-                    game.move(r1, c1, r2, c2);
+                    game.makeMove(r1, c1, r2, c2);
 
             if (finished)
                 break;
