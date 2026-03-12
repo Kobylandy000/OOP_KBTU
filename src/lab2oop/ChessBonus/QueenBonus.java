@@ -6,13 +6,19 @@ class QueenBonus extends PieceBonus {
         super(p, c, 'q');
     }
 
-    boolean isLegal(PositionBonus n, PieceBonus[][] board) {
+    @Override
+    boolean isLegalMove(PositionBonus n, PieceBonus[][] board) {
+        int rowDiff = Math.abs(pos.getRow() - n.getRow());
+        int colDiff = Math.abs(pos.getCol() - n.getCol());
 
-        int rowDiff = Math.abs(pos.row - n.row);
-        int colDiff = Math.abs(pos.col - n.col);
+        // Өз орнына қайта жүруге болмайды
+        if (rowDiff == 0 && colDiff == 0) {
+            return false;
+        }
 
+        // Тура (қала сияқты) НЕМЕСЕ диагональ (піл сияқты)
         return rowDiff == colDiff ||
-                pos.row == n.row ||
-                pos.col == n.col;
+                pos.getRow() == n.getRow() ||
+                pos.getCol() == n.getCol();
     }
 }

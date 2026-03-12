@@ -6,10 +6,17 @@ class RookBonus extends PieceBonus {
         super(p, c, 'r');
     }
 
-    boolean isLegal(PositionBonus n, PieceBonus[][] board) {
-
-        if (pos.row != n.row && pos.col != n.col)
+    @Override
+    boolean isLegalMove(PositionBonus n, PieceBonus[][] board) {
+        // Бір жолда немесе бір бағанда болу керек
+        if (pos.getRow() != n.getRow() && pos.getCol() != n.getCol()) {
             return false;
+        }
+
+        // Өз орнына қайта жүруге болмайды
+        if (pos.getRow() == n.getRow() && pos.getCol() == n.getCol()) {
+            return false;
+        }
 
         return true;
     }

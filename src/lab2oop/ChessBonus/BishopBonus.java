@@ -6,11 +6,13 @@ class BishopBonus extends PieceBonus {
         super(p, c, 'b');
     }
 
-    boolean isLegal(PositionBonus n, PieceBonus[][] board) {
+    @Override
+    boolean isLegalMove(PositionBonus n, PieceBonus[][] board) {
+        int rowDiff = Math.abs(pos.getRow() - n.getRow());
+        int colDiff = Math.abs(pos.getCol() - n.getCol());
 
-        int rowDiff = Math.abs(pos.row - n.row);
-        int colDiff = Math.abs(pos.col - n.col);
-
-        return rowDiff == colDiff;
+        // Диагональ бойынша жүру керек
+        // rowDiff == colDiff және бір орында қалмау керек
+        return rowDiff == colDiff && rowDiff > 0;
     }
 }
