@@ -7,6 +7,7 @@ public class Main {
         Person alice = new PhdStudent("Alice",26,"CS","AI");
 
         Animal murka = new Cat("Murka",5);
+        Animal dog = new Dog("Aktos", 2);
 
         john.assignPet(murka);
 
@@ -22,5 +23,7 @@ public class Main {
         john.retrievePetFrom(alice);
 
         System.out.println(registry);
+
+        alice.assignPet(dog);
     }
 }
