@@ -4,9 +4,9 @@ import java.util.HashSet;
 class Main {
     public static void main(String[] args) {
         HashSet<Vehicle> set = new HashSet<>();
-        set.add(new Car("ABC123", "Toyota"));
-        set.add(new Car("ABC123", "Toyota"));
-        set.add(new Car("XYZ789", "Honda"));
+        set.add(new Car("Toyota", "ABC123"));
+        set.add(new Car("Toyota", "ABC123"));
+        set.add(new Car("Honda", "XYZ789"));
 
         for (Vehicle v : set) {
             System.out.println(v);

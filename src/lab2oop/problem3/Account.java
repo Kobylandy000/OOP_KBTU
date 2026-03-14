@@ -14,7 +14,7 @@ public class Account {
     }
 
     public void withdraw(double sum) {
-        if(balance >= sum) {
+        if (balance >= sum) {
             balance -= sum;
         }
     }
@@ -28,7 +28,7 @@ public class Account {
     }
 
     public void transfer(double amount, Account other) {
-        if(balance >= amount) {
+        if (balance >= amount) {
             withdraw(amount);
             other.deposit(amount);
         }

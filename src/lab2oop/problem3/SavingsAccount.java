@@ -1,7 +1,7 @@
 package lab2oop.problem3;
 
 public class SavingsAccount extends Account {
-    private double InterestRate;
+    private double InterestRate; // Пайыздық мөлшерлеме
 
     public SavingsAccount(int number, double rate) {
         super(number);
