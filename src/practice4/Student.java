@@ -1,6 +1,6 @@
 package practice4;
 
-public class Student extends Person implements CanHavePizza, CanHaveRetake, CanHaveParty {
+public class Student extends Person implements CanHavePizza, CanHaveRetake, CanHaveParty, Movable{
 
     String studentId;
 
