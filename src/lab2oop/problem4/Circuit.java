@@ -2,9 +2,9 @@ package lab2oop.problem4;
 
 public abstract class Circuit {
 
-    public abstract double getResistance();
+    public abstract double getResistance(); //кедергі
 
-    public abstract double getPotentialDiff();
+    public abstract double getPotentialDiff(); //кернеу
 
     public abstract void applyPotentialDiff(double V);
 
