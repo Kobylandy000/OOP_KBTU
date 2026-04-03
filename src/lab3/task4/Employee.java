@@ -3,11 +3,11 @@ package lab3.task4;
 import java.util.Date;
 
 public class Employee extends Person implements Comparable<Employee>, Cloneable {
-    protected double salary;
+    public double salary;
     protected Date hireDate;
     protected String insuranceNumber;
 
-    Employee(String name, double salary, Date hireDate, String insuranceNumber) {
+    public Employee(String name, double salary, Date hireDate, String insuranceNumber) {
         super(name);
         this.salary = salary;
         this.hireDate = hireDate;
