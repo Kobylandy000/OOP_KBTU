@@ -1,81 +1,43 @@
 package lab3.task4;
 
-import java.util.Comparator;
 import java.util.Date;
-import java.util.Objects;
 
-/**
- * TASK 4: Employee класы
- */
 public class Employee extends Person implements Comparable<Employee>, Cloneable {
-    private double salary;
-    private Date hireDate;
-    private String nationalInsuranceNumber;
+    protected double salary;
+    protected Date hireDate;
+    protected String insuranceNumber;
 
-    // Конструкторлар
-    public Employee(String name, double salary, Date hireDate, String nationalInsuranceNumber) {
+    Employee(String name, double salary, Date hireDate, String insuranceNumber) {
         super(name);
         this.salary = salary;
         this.hireDate = hireDate;
-        this.nationalInsuranceNumber = nationalInsuranceNumber;
+        this.insuranceNumber = insuranceNumber;
     }
-
-    public Employee(String name, double salary) {
-        this(name, salary, new Date(), "N/A");
-    }
-
-    public Employee(String name) {
-        this(name, 0.0, new Date(), "N/A");
-    }
-
-    // Accessor methods
-    public double getSalary() { return salary; }
-    public void setSalary(double salary) { this.salary = salary; }
-
-    public Date getHireDate() { return hireDate; }
-    public void setHireDate(Date hireDate) { this.hireDate = hireDate; }
-
-    public String getNationalInsuranceNumber() { return nationalInsuranceNumber; }
-    public void setNationalInsuranceNumber(String n) { this.nationalInsuranceNumber = n; }
 
     @Override
     public String toString() {
-        return "Employee{name='" + name + "', salary=" + salary +
-               ", hireDate=" + hireDate + ", NI='" + nationalInsuranceNumber + "'}";
+        return name + " ($" + salary + ")";
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Employee)) return false;
-        if (!super.equals(o)) return false;
-        Employee e = (Employee) o;
-        return Double.compare(e.salary, salary) == 0 &&
-               Objects.equals(nationalInsuranceNumber, e.nationalInsuranceNumber);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Employee e = (Employee) obj;
+        return insuranceNumber.equals(e.insuranceNumber);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), salary, nationalInsuranceNumber);
+    public int compareTo(Employee e) {
+        return Double.compare(this.salary, e.salary);
     }
 
-    // Comparable — жалақы бойынша салыстыру
     @Override
-    public int compareTo(Employee other) {
-        return Double.compare(this.salary, other.salary);
-    }
-
-    // Comparator: аты бойынша
-    public static final Comparator<Employee> BY_NAME = Comparator.comparing(e -> e.name);
-
-    // Comparator: жалдану күні бойынша
-    public static final Comparator<Employee> BY_HIRE_DATE = Comparator.comparing(e -> e.hireDate);
-
-    // Clone — shallow copy
-    @Override
-    public Employee clone() throws CloneNotSupportedException {
-        Employee cloned = (Employee) super.clone();
-        cloned.hireDate = (Date) this.hireDate.clone(); // deep copy for Date
-        return cloned;
+    public Employee clone() {
+        try {
+            return (Employee) super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 }
