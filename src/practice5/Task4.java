@@ -27,10 +27,10 @@ public class Task4
         {
             leftString  = tokenizer.nextToken();
             operator    = tokenizer.nextToken();
-            rightString = tokenizer.nextToken();    // "5.3+" → NoSuchElementException
+            rightString = tokenizer.nextToken();
 
             leftOperand  = Double.parseDouble(leftString);
-            rightOperand = Double.parseDouble(rightString); // "a" → NumberFormatException
+            rightOperand = Double.parseDouble(rightString);
 
             if (operator.equals("+"))
                 result = leftOperand + rightOperand;

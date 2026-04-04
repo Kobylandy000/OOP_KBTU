@@ -9,7 +9,6 @@ public class Task5
         String line = "45.0+4.1   3.2*9.1   10.0-2.5   8.0/4.0   8.0/0.0   5.3+   b+9.2   5.3+a";
         System.out.println("Input: \"" + line + "\"\n");
 
-        // Split the line by whitespace → individual expressions
         String[] expressions = line.trim().split("\\s+");
 
         for (String expr : expressions)
@@ -31,9 +30,7 @@ public class Task5
         {
             leftString  = tokenizer.nextToken();
             operator    = tokenizer.nextToken();
-            rightString = tokenizer.nextToken(); // missing → NoSuchElementException
-
-            // Nested try-catch: identify which operand is not a number
+            rightString = tokenizer.nextToken();
             try
             {
                 leftOperand = Double.parseDouble(leftString);
