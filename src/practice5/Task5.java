@@ -4,11 +4,6 @@ import java.util.*;
 
 public class Task5
 {
-    // Programming Practice — three improvements over Example4:
-    //   1) Supports all four operators: +, -, *, /
-    //   2) Processes multiple expressions on one line: "45.0+4.1   3.2*9.1"
-    //   3) Tells you WHICH operand is not a number (nested try-catch)
-
     public static void main(String[] args)
     {
         String line = "45.0+4.1   3.2*9.1   10.0-2.5   8.0/4.0   8.0/0.0   5.3+   b+9.2   5.3+a";
